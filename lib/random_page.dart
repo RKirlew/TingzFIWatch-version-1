@@ -138,7 +138,7 @@ class _randomPageState extends State<randomPage> {
   fetchRandomMovie() async {
     var url;
     url = await http.get(Uri.parse(
-        "https://api.themoviedb.org/3/movie/top_rated?api_key=e1572944415ab0d6f1b319031fd65559&language=en-US&page="+page.toString()));
+        "https://api.themoviedb.org/3/movie/top_rated?api_key={api_key}&language=en-US&page="+page.toString()));
     return json.decode(url.body)['results'];
   }
 }
