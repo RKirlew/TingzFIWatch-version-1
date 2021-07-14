@@ -250,7 +250,7 @@ class _movieSearchState extends State<movieSearch> {
 
 
     var url;
-    url = await http.get(Uri.parse("https://api.themoviedb.org/3/search/movie?api_key=e1572944415ab0d6f1b319031fd65559&language=en-US&page=1&include_adult=false&query="+query
+    url = await http.get(Uri.parse("https://api.themoviedb.org/3/search/movie?api_key={api_key}&language=en-US&page=1&include_adult=false&query="+query
     ));
     return json.decode(url.body)['results'];
   }
