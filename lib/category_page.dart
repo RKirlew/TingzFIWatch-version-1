@@ -18,7 +18,7 @@ fetchGenres() async {
 
   var url;
   url = await http.get(Uri.parse(
-      "https://api.themoviedb.org/3/genre/movie/list?api_key=e1572944415ab0d6f1b319031fd65559&language=en-US"));
+      "https://api.themoviedb.org/3/genre/movie/list?api_key={api_key}&language=en-US"));
   return json.decode(url.body)['genres'];
 }
 
@@ -117,7 +117,7 @@ class _theSelectedCategoryState extends State<theSelectedCategory> {
 
     var url;
     url = await http.get(Uri.parse(
-        "https://api.themoviedb.org/3/discover/movie?api_key=e1572944415ab0d6f1b319031fd65559&with_genres="+genreID));
+        "https://api.themoviedb.org/3/discover/movie?api_key={api_key}&with_genres="+genreID));
     return json.decode(url.body)['results'];
   }
   @override
@@ -134,26 +134,6 @@ class _theSelectedCategoryState extends State<theSelectedCategory> {
 
 
             Text("Search Results", style: TextStyle(color: Colors.red, fontSize: 20,),),
-            /*TextField(onSubmitted: (value) {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => movieSearch(),
-                      // Pass the arguments as part of the RouteSettings. The
-                      // DetailScreen reads the arguments from these settings.
-                      settings: RouteSettings(
-                        arguments: value,
-                      )));
-
-            },
-
-              style: TextStyle(color: Colors.white),
-              decoration: InputDecoration(
-                  border: InputBorder.none,
-
-                  hintText: "Search Movies Here",
-                  hintStyle: TextStyle(color: Colors.white, )),
-            ),*/
 
           ],
         ),
